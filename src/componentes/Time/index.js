@@ -1,19 +1,17 @@
-import Jogador from '../Jogador'
-import './Time.css' 
+import Colaborador from '../Colaborador'
+import './time.css'
 
+const Time = ({ time, colaboradores }) => {
+    return (
 
-const Time = (props) =>
-{
-    const css = {borderColor:props.corPrimaria}  
-return (
-    (props.jogadores.length > 0) && <section className='time' style={{backgroundColor: props.corSecundaria}}>
-        <h3 style={css}>{props.nome}</h3>
-        <div className='jogadores'>
-        {props.jogadores.map(jogador => <Jogador corDeFundo={props.corPrimaria} key={jogador.nome} nome={jogador.nome} classi={jogador.classi} imagem={jogador.imagem}/>)}
-        </div>
-    </section>
-)
+        colaboradores.length > 0 && <section className='time' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: time.corPrimaria }}>
+            <h3 style={{ borderColor: time.corSecundaria }}>{time.nome}</h3>
+            <div className='colaboradores'>
+                {colaboradores.map((colaborador, indice) => <Colaborador key={indice} colaborador={colaborador} corDeFundo={time.corSecundaria} />)}
+            </div>
+        </section>
 
+    )
 }
 
 export default Time
